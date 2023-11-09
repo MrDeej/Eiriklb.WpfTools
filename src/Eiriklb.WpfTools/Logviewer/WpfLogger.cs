@@ -5,7 +5,7 @@ namespace Eiriklb.WpfTools.Logviewer
 {
     public class WpfLogger : Microsoft.Extensions.Logging.ILogger
     {
-        private LogViewerVm _vm;
+        private readonly LogViewerVm _vm;
 
         // A class that represents a logging scope
         private class WpfLoggerScope : IDisposable
@@ -34,7 +34,11 @@ namespace Eiriklb.WpfTools.Logviewer
                 message += $" (Scope: {scope.State})";
             }
 
-            Application.Current.Dispatcher.Invoke(() => InMemoryData.Instance.ObsCollLogg.Add(new WpfLogItem(message, exception, logLevel)));
+            Application.Current.Dispatcher.Invoke(
+                () => 
+                InMemoryData.Instance.ObsCollLogg.Add(
+                    new WpfLogItem(message, exception, logLevel)),
+                System.Windows.Threading.DispatcherPriority.Background);
         }
 
         public bool IsEnabled(LogLevel logLevel)

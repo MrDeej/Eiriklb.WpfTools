@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:logviewer="clr-namespace:Eiriklb.WpfTools.Logviewer"
+        xmlns:wpfTools="clr-namespace:Eiriklb.WpfTools"
         mc:Ignorable="d"
         Title="Logs" Height="450" Width="800">
     <Window.DataContext>
@@ -17,6 +18,7 @@
         <StackPanel Orientation="Horizontal">
             <Button x:Name="BtnClearLog" Content="Clear log" Margin="4" Click="BtnClearLog_Click" Padding="2"/>
             <ComboBox ItemsSource="{Binding AllLogLevels}" SelectedItem="{Binding SelectedLogLevel,Mode=TwoWay}" Margin="4"/>
+            <CheckBox Content="Keep new items in view" IsChecked="{Binding KeepNewItemsInFocus}" Margin="4" VerticalAlignment="Center"/>
         </StackPanel>
         <ListBox x:Name="ListBoxLog" Grid.Row="1" ItemsSource="{Binding InMemoryData.ObsCollLogg, Mode=OneWay}"   
                  VirtualizingPanel.ScrollUnit="Pixel" 

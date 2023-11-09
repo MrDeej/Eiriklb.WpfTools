@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:globalVm="clr-namespace:Eiriklb.WpfTools.GlobalVm">
+    <Style TargetType="{x:Type globalVm:RunningTaskViewer}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type globalVm:RunningTaskViewer}">
+                    <Border Background="{TemplateBinding Background}"
+                       BorderBrush="{TemplateBinding BorderBrush}"
+                       BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Orientation="Horizontal">
+                            <ProgressBar x:Name="PART_ProgressBar" Margin="4" MinWidth="20" IsIndeterminate="True"/>
+                            <Button x:Name="PART_BtnRunningTasks" Margin="4"/>
+                            <Popup x:Name="MyPopup" 
+                                   Placement="RelativePoint" 
+                                   HorizontalOffset="0" 
+                                   VerticalOffset="0" 
+                                   PlacementTarget="{Binding ElementName=PART_BtnRunningTasks}" 
+                                   PlacementRectangle="1,0,0,0" 
+                                   StaysOpen="False" 
+                                   MaxWidth="400">
+                                <!-- Adjust MaxWidth as needed -->
+                                <ListBox ItemsSource="{TemplateBinding ObsCollRunningTasks}" 
+                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="ListBoxItem">
+                                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type globalVm:RunningTask}">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding StatusText}" VerticalAlignment="Center" Margin="4"/>
+                                                <Button Content="Cancel" Margin="4" x:Name="BtnRunningTaskCancel" Command="{Binding CancelCommand}" Grid.Column="1" IsEnabled="{Binding CanUserCancel}" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Popup>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

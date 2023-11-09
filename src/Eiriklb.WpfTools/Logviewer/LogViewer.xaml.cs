@@ -12,9 +12,10 @@ namespace Eiriklb.WpfTools.Logviewer
         private Guid _delayGuid;
 
 
-        public LogViewer()
+        public LogViewer(LogViewerVm vm)
         {
             InitializeComponent();
+            this.DataContext = vm;
             ViewModel.InMemoryData.ObsCollLogg.CollectionChanged+=ObsCollLogg_CollectionChanged;
         }
 
