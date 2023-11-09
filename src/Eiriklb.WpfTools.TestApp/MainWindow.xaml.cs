@@ -38,7 +38,7 @@ namespace Eiriklb.WpfTools.TestApp
             {
                 Vm.TasksStarted++;
 
-                var taskText = Vm.TaskText + $"({Vm.TasksStarted})";
+                var taskText = Vm.TaskText + $" ({Vm.TasksStarted})";
 
 
                 using var task = Vm.AddTask(taskText, Vm.CanUserCancel);

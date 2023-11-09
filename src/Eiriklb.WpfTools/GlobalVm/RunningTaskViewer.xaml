@@ -9,8 +9,10 @@
                        BorderBrush="{TemplateBinding BorderBrush}"
                        BorderThickness="{TemplateBinding BorderThickness}">
                         <StackPanel Orientation="Horizontal">
-                            <ProgressBar x:Name="PART_ProgressBar" Margin="4" MinWidth="20" IsIndeterminate="True"/>
-                            <Button x:Name="PART_BtnRunningTasks" Margin="4"/>
+                            <ProgressBar x:Name="PART_ProgressBar" Margin="4" MinWidth="20" VerticalAlignment="Center" Height="16" IsIndeterminate="True"/>
+                            <Button x:Name="PART_BtnRunningTasks" Margin="4" 
+                                    BorderBrush="Transparent" Background="Transparent"
+                                    Padding="4"/>
                             <Popup x:Name="MyPopup" 
                                    Placement="RelativePoint" 
                                    HorizontalOffset="0" 
@@ -36,7 +38,7 @@
                                                     <ColumnDefinition Width="Auto"/>
                                                 </Grid.ColumnDefinitions>
                                                 <TextBlock Text="{Binding StatusText}" VerticalAlignment="Center" Margin="4"/>
-                                                <Button Content="Cancel" Margin="4" x:Name="BtnRunningTaskCancel" Command="{Binding CancelCommand}" Grid.Column="1" IsEnabled="{Binding CanUserCancel}" />
+                                                <Button Content="Cancel" Margin="4" Padding="4" x:Name="BtnRunningTaskCancel" Command="{Binding CancelCommand}" Grid.Column="1" IsEnabled="{Binding CanUserCancel}" />
                                             </Grid>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
