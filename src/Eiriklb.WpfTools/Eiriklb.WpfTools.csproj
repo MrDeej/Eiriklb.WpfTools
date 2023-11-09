@@ -7,4 +7,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Update="GenericDatagrid\AllGenericDatagrid.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Logviewer\LogViewer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DataGridFilter" Version="1.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-rc.2.23479.6" />
+	</ItemGroup>
 </Project>
