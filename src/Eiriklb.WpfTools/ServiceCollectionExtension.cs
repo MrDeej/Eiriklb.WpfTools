@@ -16,8 +16,8 @@ namespace Eiriklb.WpfTools
         {
 
             services.AddScoped<ILogger, WpfLogger>();
-            services.AddScoped<LogViewer, LogViewer>();
-            services.AddScoped<LogViewerVm, LogViewerVm>();
+            services.AddTransient<LogViewer, LogViewer>();
+            services.AddTransient<LogViewerVm, LogViewerVm>();
         }
     }
 }
