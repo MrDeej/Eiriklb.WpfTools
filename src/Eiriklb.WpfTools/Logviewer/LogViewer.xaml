@@ -20,7 +20,7 @@
             <ComboBox ItemsSource="{Binding AllLogLevels}" SelectedItem="{Binding SelectedLogLevel,Mode=TwoWay}" Margin="4"/>
             <CheckBox Content="Keep new items in view" IsChecked="{Binding KeepNewItemsInFocus}" Margin="4" VerticalAlignment="Center"/>
         </StackPanel>
-        <ListBox x:Name="ListBoxLog" Grid.Row="1" ItemsSource="{Binding InMemoryData.ObsCollLogg, Mode=OneWay}"   
+        <ListBox x:Name="ListBoxLog" Grid.Row="1" ItemsSource="{Binding InMemoryData.ObsCollLogg, Mode=OneWay}"   Margin="0,0,0,10"
                  VirtualizingPanel.ScrollUnit="Pixel" 
                  Loaded="ListBoxLog_Loaded">
             <ListBox.ItemTemplate>
