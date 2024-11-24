@@ -19,6 +19,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="DataGridFilter" Version="1.0.3" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0-preview.4.24266.19" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" />
 	</ItemGroup>
 </Project>
